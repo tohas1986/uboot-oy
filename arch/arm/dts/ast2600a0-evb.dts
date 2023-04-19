@@ -1,0 +1,17 @@
+/dts-v1/;
+
+#include "ast2600-evb.dts"
+
+/ {
+	model = "AST2600A0 EVB";
+
+	aliases {
+		ethernet0 = &mac1;
+		ethernet1 = &mac2;
+		ethernet2 = &mac3;
+		/delete-property/ethernet3;
+	};
+};
+
+/* MAC0 is broken on A1 */
+/delete-node/&mac0;

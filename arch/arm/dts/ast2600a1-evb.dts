@@ -1,0 +1,16 @@
+/dts-v1/;
+
+#include "ast2600-evb.dts"
+
+/ {
+	model = "AST2600A1 EVB";
+	compatible = "aspeed,ast2600-evb", "aspeed,ast2600";
+};
+
+&emmc {
+	timing-phase = <0x000700bf>;
+};
+
+&sdhci {
+	timing-phase = <0x01084747>;
+};

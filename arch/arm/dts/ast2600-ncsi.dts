@@ -1,0 +1,28 @@
+/dts-v1/;
+
+#include "ast2600-u-boot.dtsi"
+
+/ {
+	model = "AST2600 EVB w/ NCSI";
+};
+
+/delete-node/&mac0;
+/delete-node/&mac1;
+
+&mac2 {
+	status = "okay";
+	phy-mode = "NC-SI";
+	use-ncsi;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_rmii3_default>;
+	/delete-property/phy-handle;
+};
+
+&mac3 {
+	status = "okay";
+	phy-mode = "NC-SI";
+	use-ncsi;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_rmii4_default>;
+	/delete-property/phy-handle;
+};

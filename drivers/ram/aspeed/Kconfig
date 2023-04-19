@@ -1,0 +1,130 @@
+if RAM || SPL_RAM
+
+if ASPEED_AST2600
+choice
+	prompt "DDR4 target data rate"
+	default ASPEED_DDR4_1600
+
+config ASPEED_DDR4_400
+	bool "DDR4 targets at 400Mbps"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 target data rate at 400M
+
+config ASPEED_DDR4_800
+	bool "DDR4 targets at 800Mbps"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 target data rate at 800M
+
+config ASPEED_DDR4_1333
+	bool "DDR4 targets at 1333Mbps"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 target data rate at 1333M
+
+config ASPEED_DDR4_1600
+	bool "DDR4 targets at 1600Mbps"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 target data rate at 1600M
+endchoice
+
+config ASPEED_DDR4_DUALX8
+	bool "dual X8 DDR4 die"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	default n
+	help
+	  select dual X8 DDR4 die
+
+config ASPEED_BYPASS_SELFTEST
+	bool "bypass self test during DRAM initialization"
+	default n
+	help
+	  Say Y here to bypass DRAM self test to speed up the boot time
+
+choice
+	prompt "DDR4 PHY side ODT"
+	default ASPEED_DDR4_PHY_ODT80
+
+config ASPEED_DDR4_PHY_ODT80
+	bool "DDR4 PHY side ODT 80 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 PHY side ODT 80 ohm
+
+config ASPEED_DDR4_PHY_ODT60
+	bool "DDR4 PHY side ODT 60 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 PHY side ODT 60 ohm
+
+config ASPEED_DDR4_PHY_ODT48
+	bool "DDR4 PHY side ODT 48 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 PHY side ODT 48 ohm
+
+config ASPEED_DDR4_PHY_ODT40
+	bool "DDR4 PHY side ODT 40 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 PHY side ODT 40 ohm
+endchoice
+
+choice
+	prompt "DDR4 DRAM side ODT"
+	default ASPEED_DDR4_DRAM_ODT48
+
+config ASPEED_DDR4_DRAM_ODT80
+	bool "DDR4 DRAM side ODT 80 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 DRAM side ODT 80 ohm
+
+config ASPEED_DDR4_DRAM_ODT60
+	bool "DDR4 DRAM side ODT 60 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 DRAM side ODT 60 ohm
+
+config ASPEED_DDR4_DRAM_ODT48
+	bool "DDR4 DRAM side ODT 48 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 DRAM side ODT 48 ohm
+
+config ASPEED_DDR4_DRAM_ODT40
+	bool "DDR4 DRAM side ODT 40 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 DRAM side ODT 40 ohm
+endchoice
+
+choice
+	prompt "DDR4 DRAM output driver impedance"
+	default ASPEED_DDR4_DRAM_RON_34
+
+config ASPEED_DDR4_DRAM_RON_34
+	bool "DDR4 DRAM output driver impedance 34 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 DRAM output driver impedance 34 ohm
+
+config ASPEED_DDR4_DRAM_RON_48
+	bool "DDR4 DRAM output driver impedance 48 ohm"
+	depends on DM && OF_CONTROL && ARCH_ASPEED
+	help
+	  select DDR4 DRAM output driver impedance 48 ohm
+endchoice
+
+config ASPEED_DDR4_WR_DATA_EYE_TRAINING_RESULT_OFFSET
+	hex "DDR PHY write data eye training result offset"
+	default 0x10
+	help
+	  The offset value applied to the DDR PHY write data eye training result
+	  to fine-tune the write DQ/DQS alignment. Please don't change it if you
+	  are not sure what is the best value in your system.
+endif
+
+endif
