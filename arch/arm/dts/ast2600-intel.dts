@@ -49,15 +49,15 @@
 };
 
 &wdt1 {
-	status = "okay";
+	status = "disabled";
 };
 
 &wdt2 {
-	status = "okay";
+	status = "disabled";
 };
 
 &wdt3 {
-	status = "okay";
+	status = "disabled";
 };
 
 &mdio {

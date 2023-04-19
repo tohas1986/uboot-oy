@@ -71,6 +71,8 @@ static int smbios_string_table_len(char *start)
 	return len + 1;
 }
 
+#define U_BOOT_DMI_DATE 1
+
 static int smbios_write_type0(ulong *current, int handle)
 {
 	struct smbios_type0 *t;

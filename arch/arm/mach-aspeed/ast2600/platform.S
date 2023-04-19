@@ -294,7 +294,8 @@ wait_lock:
 	ldr	r1, =AST_SCU_CLK_STOP_CTRL_CLR
 	str	r0, [r1]
 
-#if 0
+#if 1
+        ldr	r0, =0x00000000
 	ldr	r1, =AST_FMC_WDT2_CTRL_MODE
 	str	r0, [r1]
 #endif
