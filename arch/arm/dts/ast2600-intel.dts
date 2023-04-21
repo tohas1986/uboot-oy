@@ -49,39 +49,27 @@
 };
 
 &wdt1 {
-	status = "disabled";
+	status = "okay";
 };
 
 &wdt2 {
-	status = "disabled";
+	status = "okay";
 };
 
 &wdt3 {
-	status = "disabled";
+	status = "okay";
 };
 
 &mdio {
 	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <	&pinctrl_mdio1_default &pinctrl_mdio2_default
-			&pinctrl_mdio3_default &pinctrl_mdio4_default>;
+	pinctrl-0 = <	&pinctrl_mdio1_default>;
 	#address-cells = <1>;
 	#size-cells = <0>;
 	ethphy0: ethernet-phy@0 {
 		reg = <0>;
 	};
 
-	ethphy1: ethernet-phy@1 {
-		reg = <0>;
-	};
-
-	ethphy2: ethernet-phy@2 {
-		reg = <0>;
-	};
-
-	ethphy3: ethernet-phy@3 {
-		reg = <0>;
-	};
 };
 
 &mac0 {
@@ -92,29 +80,6 @@
 	pinctrl-0 = <&pinctrl_rgmii1_default>;
 };
 
-&mac1 {
-	status = "okay";
-	phy-mode = "rgmii";
-	phy-handle = <&ethphy1>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rgmii2_default>;
-};
-
-&mac2 {
-	status = "okay";
-	phy-mode = "rgmii";
-	phy-handle = <&ethphy2>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rgmii3_default>;
-};
-
-&mac3 {
-	status = "okay";
-	phy-mode = "rgmii";
-	phy-handle = <&ethphy3>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rgmii4_default>;
-};
 
 &fmc {
 	status = "okay";
